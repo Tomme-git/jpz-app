@@ -1,38 +1,144 @@
+:root {
+  --text: #f5efa3;
+  --bg: #303a3a;
+  --primary: #fbdd33;
+  --secondary: #053338;
+  --accent: #40fd00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+}
+
 .App {
-  text-align: center;
+  overflow: hidden;
+  height: 3000px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--text);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: var(--accent);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  height: 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 1.25rem;
+}
+
+.hamburger-icon {
+  z-index: 22;
+  height: 100%;
+  width: 6rem;
+  margin-right: 0;
+  margin-left: auto;
+  transition: 0.20s 0.30s ease-out;
+  cursor: pointer;
+}
+
+.line-wrapper {
+  height: 100%;
+  width: max-content;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: 1.25rem;
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.125rem;
+  background-color: var(--text);
+  transition: 0.5s;
+}
+
+.header-bg {
+  height: 100%;
+  width: 100%;
+  background-color: var(--text);
+  opacity: 5%;
+  position: absolute;
+  top: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -6rem;
+  top: 0;
+  height: 100vh;
+  background-color: var(--secondary);
+  transition: 0.5s ease-out;
+  z-index: 21;
+  padding-top: 4rem;
+}
+
+nav>* {
+  height: 6rem;
+  width: 6rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: 0.5s ease-out;
 }
 
-.App-link {
-  color: #61dafb;
+nav>*+* {
+  border-top: 1px solid var(--primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav>*:hover,
+nav>*:active,
+nav>*:focus,
+nav>*:focus-within {
+  background-color: var(--text);
+}
+
+
+
+/** replace with classes that gets added on burgermenu click**/
+
+.show-nav {
+  right: 0;
+}
+
+.follow-nav {
+  margin-right: 0.750rem;
+}
+
+.first-line-smaller {
+  width: 1.5rem;
+}
+
+.second-line-smaller {
+  width: 0.5rem;
 }
