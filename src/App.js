@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import Page from './pages/Page';
+import Homepage from './pages/Homepage';
+import Wallet from './pages/Wallet';
 
 function App() {
   return (
@@ -10,11 +11,12 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/page" element={<Page />} />
+          <Route path="/projects/jpz-app/" element={<Homepage />} />
+          <Route path="/projects/jpz-app/wallet" element={<Wallet />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
