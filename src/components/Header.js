@@ -12,9 +12,9 @@ function Header() {
         setOpen(!open);
       }
     }
-    document.addEventListener("mousedown", checkIfClickedOutside);
+    document.addEventListener("click", checkIfClickedOutside);
     return () => { // cleanup
-      document.removeEventListener("mousedown", checkIfClickedOutside);
+      document.removeEventListener("click", checkIfClickedOutside);
     }
   }, [open]);
 
@@ -34,12 +34,12 @@ function Header() {
       <nav className={open ? "show-nav" : ""}>
         <NavLink to="/projects/jpz-app/">Hjem</NavLink>
         <NavLink to="/projects/jpz-app/wallet">Pung</NavLink>
-        <NavLink to="/projects/jpz-app/">Icon</NavLink>
+        <NavLink to="/projects/jpz-app/location">Maps</NavLink>
         <NavLink to="/projects/jpz-app/">Icon</NavLink>
         <div className="nav-bg"></div>
       </nav>
     </header>
-  )
+  );
 };
 
 export default Header;

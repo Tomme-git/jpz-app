@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Homepage from './pages/Homepage';
 import Wallet from './pages/Wallet';
+import Location from './pages/Location';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/projects/jpz-app/" element={<Homepage />} />
           <Route path="/projects/jpz-app/wallet" element={<Wallet />} />
+          <Route path="/projects/jpz-app/location" element={<Location />} />
         </Routes>
       </BrowserRouter>
     </div>

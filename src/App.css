@@ -6,14 +6,14 @@
   --secondary: #053338;
   --accent: #40fd00;
 */
-  --text: #004225;
-  --bg: #F8F4E3;
-  --cta: #FF8000;
-  --secondary: #6CA83B;
-  --accent: #FFC200;
+  --text: #25424f;
+  --bg: #efead6;
+  --cta: #739b22;
+  --secondary: #705a47;
+  --accent: #336031;
 
   /* --text but 10% opacity */
-  --text-bg: rgba(0, 66, 37, 0.10);
+  --text-bg: rgba(37, 66, 79, 0.1);
 }
 
 * {
@@ -23,14 +23,14 @@
 }
 
 html {
-  overflow-x: hidden;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  height: 100%;
   background-color: var(--bg);
   overflow-x: hidden;
-  height: 100%;
 }
 
 h1,
@@ -49,8 +49,7 @@ a {
 }
 
 .App {
-  min-height: 100svh;
-  height: 3000px;
+  min-height: 100dvh;
 }
 
 .show {
@@ -67,7 +66,8 @@ a {
   /*   background-color : blue; */
   border-radius: 50%;
   border: 4px solid transparent;
-  border-top-color: var(--accent);
+  border-top-color: var(--cta);
+  border-bottom-color: var(--accent);
   animation: spin infinite 1s;
   position: absolute;
   top: 50%;
@@ -92,7 +92,7 @@ a {
 header {
   --header-height: 4rem;
   height: var(--header-height);
-  background-color: var(--bg);
+  background-image: url('images/noisy-yellow.jpg');
   position: sticky;
   top: 0;
   z-index: 20;
@@ -115,9 +115,9 @@ header {
   width: 6rem;
   margin-right: 0;
   margin-left: auto;
-  transition: 0.20s 0.30s ease-out;
+  transition: 0.10s 0.15s ease-out;
   cursor: pointer;
-  background-color: #dfe1cf;
+  background-image: url('images/noisy-yellow.jpg');
 }
 
 .follow-nav {
@@ -150,14 +150,6 @@ header {
   width: 0.5rem;
 }
 
-.header-bg {
-  height: 100%;
-  width: 100%;
-  background-color: var(--text-bg);
-  position: absolute;
-  top: 0;
-}
-
 /* nav */
 nav {
   --nav-item-dimension: 6rem;
@@ -167,45 +159,37 @@ nav {
   width: var(--nav-item-dimension);
   margin-top: calc(-1 * var(--header-height));
   margin-left: 100%;
-  height: 100vh;
-  background-color: var(--bg);
-  transition: 0.5s ease-out;
+  height: 100dvh;
+  background-image: url('images/noisy-yellow.jpg');
+  transition: 0.25s ease-out;
   z-index: 21;
   padding-top: 4rem;
   border-left: 1px solid var(--accent);
+}
+
+nav>.active {
+  background-color: var(--text-bg);
+  color: var(--text);
 }
 
 .show-nav {
   margin-left: calc(100% - var(--nav-item-dimension));
 }
 
-nav>* {
+nav>a {
   height: var(--nav-item-dimension);
   width: var(--nav-item-dimension);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.5s ease-out;
+  transition: 0.2s ease-out;
 }
 
-nav>*+* {
+nav>a+a {
   border-top: 1px solid var(--accent);
 }
 
-nav>*:hover,
-nav>*:active,
-nav>*:focus,
-nav>*:focus-within {
-  background-color: var(--text);
-}
 
-.nav-bg {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border: none;
-  background-color: var(--text-bg);
-}
 
 /***************************** main general styling **/
 
@@ -232,7 +216,7 @@ main {
   padding: var(--display-padding);
   border-radius: 12px;
   background-color: var(--text-bg);
-  box-shadow: 0px 4px 12px rgba(8, 29, 49, 0.2);
+  box-shadow: 0px 4px 8px rgba(8, 29, 49, 0.2);
 }
 
 .wallet-currency {
@@ -259,6 +243,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.4);
 }
 
 .wallet-display .add-money button {
@@ -271,7 +256,6 @@ main {
   color: var(--bg);
   font-size: 2rem;
   position: relative;
-  top: -2px;
   background: none;
   border: none;
   cursor: pointer;
@@ -291,7 +275,6 @@ main {
 }
 
 .armband {
-
   min-height: 150px;
   min-width: 150px;
   background-color: var(--secondary);
@@ -337,6 +320,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.2);
 }
 
 .armband .add-money button {
@@ -349,8 +333,39 @@ main {
   color: var(--bg);
   font-size: 2rem;
   position: relative;
-  top: -3px;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/************************** Map */
+
+.map-container {
+  width: 100%;
+  height: calc(100dvh - 4rem);
+  position: relative;
+  z-index: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  z-index: 2000;
+  background-color: var(--secondary);
+  cursor: pointer;
+  bottom: 1rem;
+  right: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.2);
+  border-radius: 4px;
+}
+
+.map-overlay>p {
+  color: var(--bg);
+  font-size: 1.375rem
 }

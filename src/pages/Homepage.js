@@ -12,7 +12,7 @@ function Homepage() {
         </p>
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default Homepage;

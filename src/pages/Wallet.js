@@ -4,14 +4,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Wallet() {
   const userId = 0;
-  const notify = (amountAdded, person) => toast(
-    `${amountAdded} kr. overført ${person ? "til " + person + "s armbånd" : ""}`,
+  const notify = (amountAdded, person = false) => toast(
+    `${amountAdded} kr. overført ${person ? "til " + person + "s armbånd" : "til din pung"}`,
     {
       type: "success",
       theme: "light",
       pauseOnFocusLoss: false,
       delay: 500,
-      autoClose: 1500,
+      autoClose: 2000,
       position: "top-left"
     })
 
@@ -93,13 +93,13 @@ function Wallet() {
     const updatedWalletCurrency = post.walletCurrency - amount;
     const updatedArmbandCurrency = armband.armbandCurrency + amount;
 
-    const lengthskeren = post.armbands;
+    const armbandsObj = post.armbands;
     let updatedArmbands = {};
-    for (let i = 0; i < lengthskeren.length; i++) {
-      if (post.armbands[i].user === armband.user) {
+    for (let i = 0; i < armbandsObj.length; i++) {
+      if (armbandsObj[i].user === armband.user) {
         updatedArmbands[i] = { "user": armband.user, "armbandCurrency": armband.armbandCurrency + amount };
       } else {
-        updatedArmbands[i] = { "user": post.armbands[i].user, "armbandCurrency": post.armbands[i].armbandCurrency };
+        updatedArmbands[i] = { "user": armbandsObj[i].user, "armbandCurrency": armbandsObj[i].armbandCurrency };
       };
     };
     const updatedArray = {
@@ -173,7 +173,7 @@ function Wallet() {
       </div>
       <ToastContainer />
     </main>
-  )
+  );
 };
 
 export default Wallet;
