@@ -16,6 +16,7 @@ function Map() {
   })
 
   function updateMarkers() {
+    // To be replaced with armband data
     setMarkers([
       { lat: 56.09601701450544, lng: 8.80876375693962 },
       { lat: 56.09591401730544, lng: 8.80756375593262 },

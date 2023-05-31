@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from '../images/logo.png';
 
 function Header() {
   const burgerRef = useRef(null);
@@ -21,7 +22,9 @@ function Header() {
   return (
     <header>
       <div className="header-wrapper">
-        <p className="logo" style={{ fontSize: '30px' }}>Logo</p>
+        <NavLink to="/projects/jpz-app/">
+          <img className="logo" src={Logo} height="40px" alt="Jyllands Park Zoo Logo" />
+        </NavLink>
         <div ref={burgerRef} className={`hamburger-icon ${open ? "follow-nav" : ""}`} onClick={() => setOpen(!open)}>
           <div className="line-wrapper">
             <div className={`hamburger-line ${open ? "first-line-smaller" : ""}`}></div>
