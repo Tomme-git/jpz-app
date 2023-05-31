@@ -1,4 +1,4 @@
-export async function getPostsData(setPosts, setWalletAmount, walletAmount, setIsPosts) {
+export async function getPostsData(setPosts, setWalletAmount, setIsPosts) {
   try {
     const url =
       "https://jpz-app-default-rtdb.europe-west1.firebasedatabase.app/userCurrency.json";
