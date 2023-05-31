@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getPostsData, addMoney, moneyToArmband } from '../utils/walletUtils';
 
 function Wallet() {
   const userId = 0;
@@ -26,102 +27,22 @@ function Wallet() {
 
   // get data from firebase and assign to post variable
   useEffect(() => {
-    async function getPosts() {
-      setIsLoading(true);
-
-      try {
-        const url =
-          "https://jpz-app-default-rtdb.europe-west1.firebasedatabase.app/userCurrency.json";
-
-        // wait until "response" gets positive response from database
-        const response = await fetch(url);
-        // assign json data (array of products) into the "data" variable
-        const data = await response.json();
-
-        // check if products exist
-        if (data !== null) {
-          const postsArray = Object.keys(data).map((key) => ({
-            id: key,
-            ...data[key],
-          }));
-          //setTimeout(() => {
-          setIsLoading(false);
-          setPosts(postsArray);
-          setWalletAmount(data["walletCurrency"]);
-          console.log(walletAmount);
-          //}, 1500);
-        } else {
-          setIsLoading(false);
-          setIsPosts(false);
-        }
-
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false);
-        setIsPosts(false);
-      }
-
+    setIsLoading(true);
+    const fetchData = async () => {
+      await getPostsData(setPosts, setWalletAmount, setIsPosts);
+      setIsLoading(false);
     }
-    getPosts();
+    fetchData();
   }, [walletAmount, setWalletAmount, armbandAmount, setArmbandAmount]);
 
-  async function addMoney(amount, post) {
-    const updatedWalletCurrency = post.walletCurrency + amount;
-
-    const updatedArray = {
-      walletCurrency: updatedWalletCurrency,
-      armbands: post.armbands,
-    };
-
-    const response = await fetch(userUrl, {
-      method: "PUT",
-      body: JSON.stringify(updatedArray),
-    });
-
-    const data = await response.json();
-
-    console.log(post.armbands);
+  async function handleAddMoney(amount, post) {
+    await addMoney(userUrl, setWalletAmount, amount, post);
     notify(amount);
-    setWalletAmount(updatedWalletCurrency);
-
-    console.log(data);
-    console.log(post.walletCurrency + amount);
-    console.log(`you've added ${amount}`);
   };
 
-  async function moneyToArmband(amount, armband, post) {
-    const updatedWalletCurrency = post.walletCurrency - amount;
-    const updatedArmbandCurrency = armband.armbandCurrency + amount;
-
-    const armbandsObj = post.armbands;
-    let updatedArmbands = {};
-    for (let i = 0; i < armbandsObj.length; i++) {
-      if (armbandsObj[i].user === armband.user) {
-        updatedArmbands[i] = { "user": armband.user, "armbandCurrency": armband.armbandCurrency + amount };
-      } else {
-        updatedArmbands[i] = { "user": armbandsObj[i].user, "armbandCurrency": armbandsObj[i].armbandCurrency };
-      };
-    };
-    const updatedArray = {
-      walletCurrency: updatedWalletCurrency,
-      armbands: updatedArmbands,
-    };
-    console.log(updatedArray);
-
-    const response = await fetch(userUrl, {
-      method: "PUT",
-      body: JSON.stringify(updatedArray),
-    });
-
-    const data = await response.json();
-
+  async function handleMoneyToArmband(amount, armband, post) {
+    await moneyToArmband(userUrl, setWalletAmount, setArmbandAmount, amount, armband, post);
     notify(amount, armband.user);
-    setWalletAmount(updatedWalletCurrency);
-    setArmbandAmount(updatedArmbandCurrency);
-
-    console.log(data);
-    console.log(updatedArmbandCurrency);
-    console.log(updatedWalletCurrency);
   };
 
   return (
@@ -138,7 +59,7 @@ function Wallet() {
                 <div className="wallet-display">
                   <p className="wallet-currency"><span>DKK </span>{post.walletCurrency}</p>
                   <div className="add-money">
-                    <button type="button" onClick={() => addMoney(100, post)}>+</button>
+                    <button type="button" onClick={() => handleAddMoney(100, post)}>+</button>
                   </div>
                 </div>
 
@@ -151,7 +72,7 @@ function Wallet() {
                           <h3>{armband.user}</h3>
                           <p><span>DKK </span>{armband.armbandCurrency}</p>
                           <div className="add-money">
-                            <button type="button" onClick={() => moneyToArmband(50, armband, post)}>+</button>
+                            <button type="button" onClick={() => handleMoneyToArmband(50, armband, post)}>+</button>
                           </div>
                         </div>
                       </div>
