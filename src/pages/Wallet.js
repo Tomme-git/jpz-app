@@ -5,8 +5,8 @@ import { getPostsData, addMoney, moneyToArmband } from '../utils/walletUtils';
 
 function Wallet() {
   const userId = 0;
-  const notify = (amountAdded, person = false) => toast(
-    `${amountAdded} kr. overført ${person ? "til " + person + "s armbånd" : "til din pung"}`,
+  const notify = (amountAdded, person = false, error = false) => toast(
+    error ? `Der skete en fejl, prøv igen senere` : `${amountAdded} kr. overført ${person ? "til " + person + "s armbånd" : "til din pung"}`,
     {
       type: "success",
       theme: "light",
@@ -17,10 +17,9 @@ function Wallet() {
     })
 
   const [posts, setPosts] = useState([]);
-  const [isPosts, setIsPosts] = useState(true);
+  const [isPosts, setIsPosts] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [walletAmount, setWalletAmount] = useState(0);
-  const [armbandAmount, setArmbandAmount] = useState(0)
 
   const userUrl =
     `https://jpz-app-default-rtdb.europe-west1.firebasedatabase.app/userCurrency/${userId}.json`;
@@ -29,26 +28,47 @@ function Wallet() {
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      await getPostsData(setPosts, setWalletAmount, setIsPosts);
-      setIsLoading(false);
+      try {
+        const { posts, isPosts } = await getPostsData();
+        setIsLoading(false);
+        setPosts(posts);
+        setIsPosts(isPosts);
+      } catch (error) {
+        console.log(error)
+        setIsLoading(false);
+        setIsPosts(false);
+      }
     }
     fetchData();
-  }, [walletAmount, setWalletAmount, armbandAmount, setArmbandAmount]);
+
+  }, [walletAmount, setWalletAmount]);
 
   async function handleAddMoney(amount, post) {
-    await addMoney(userUrl, setWalletAmount, amount, post);
-    notify(amount);
+    try {
+      const { walletCurrency, notifyParams } = await addMoney(userUrl, amount, post);
+      setWalletAmount(walletCurrency);
+      notify(notifyParams.amountAdded);
+    } catch (error) {
+      console.error(error);
+      notify(0, false, true);
+    }
   };
 
   async function handleMoneyToArmband(amount, armband, post) {
-    await moneyToArmband(userUrl, setWalletAmount, setArmbandAmount, amount, armband, post);
-    notify(amount, armband.user);
+    try {
+      const { walletCurrency, notifyParams } = await moneyToArmband(userUrl, amount, armband, post);
+      setWalletAmount(walletCurrency);
+      notify(notifyParams.amountAdded, notifyParams.person);
+    } catch (error) {
+      console.error(error);
+      notify(0, false, true);
+    }
   };
 
   return (
     <main>
       <div className={`loading ${isLoading ? "show" : "hide"}`}></div>
-      <div>
+      <section>
         <h1>Din pung</h1>
         <h4>Tank op eller overfør penge til armbånd</h4>
         {isPosts ? (
@@ -83,15 +103,18 @@ function Wallet() {
             ))}
           </>
         ) : (
-          <div className="wallet-display">
-            <p className="wallet-currency"><span>DKK </span>0,00</p>
-            <div className="add-money">
-              <button type="button">+</button>
+          <>
+            <h3 className="wallet-heading">Dine overførte penge</h3>
+            <div className="wallet-display">
+              <p className="wallet-currency"><span>DKK </span>0,00</p>
+              <div className="add-money">
+                <button type="button">+</button>
+              </div>
             </div>
-          </div>
+          </>
         )}
 
-      </div>
+      </section>
       <ToastContainer />
     </main>
   );

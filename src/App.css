@@ -213,52 +213,54 @@ nav>a+a {
 
 main {
   padding: 1rem;
+  max-width: 768px;
+  margin: 0 auto;
 }
 
-.mini-hero>h1 {
-  font-size: 2.5rem;
+/***************************** year cards **/
+
+.year-cards {}
+
+.year-cards h1 {
+  margin-bottom: 2rem;
 }
 
-/***************************** front page **/
-
-.mini-hero {
-  background-image: url('images/lion.jpg');
-  background-position: right;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 150px;
-  width: 100%;
-  display: flex;
-}
-
-.mini-hero h1 {
-  font-weight: 700;
-  padding-left: 5%;
-  font-size: clamp(1.25rem, 2.5rem, 8vw);
-}
-
-.welcome {
+.year-card {
   background-color: var(--text);
-  padding: 1.5rem;
+  min-height: 25rem;
+  width: 100%;
+  padding: 2rem;
 }
 
-.welcome h2,
-.welcome p,
-.welcome ul {
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.profile>* {
+  flex: 1;
+}
+
+.profile img {
+  width: 100%;
+  max-width: 150px;
+  min-width: 120px;
+  object-fit: contain;
+}
+
+.profile>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.profile p {
   color: var(--bg);
+  font-size: 1.125rem;
 }
 
-.welcome p {
-  padding: 1rem 0 0.5rem 0;
-}
-
-.welcome li {
-  line-height: 1.5;
-}
-
-.welcome li+li {
-  padding-top: 0.5rem;
-}
 
 /***************************** wallet **/
 
@@ -427,4 +429,42 @@ main {
 .map-overlay>p {
   color: var(--bg);
   font-size: 1.375rem
+}
+
+/**************************************** Wallet widget *******/
+.wallet-widget {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 0.25rem;
+  z-index: 4000;
+  /* background-color: var(--secondary); */
+  background-color: var(--cta);
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.2);
+}
+
+.wallet-widget a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-value {
+  height: 85%;
+  width: 85%;
+  border-radius: 0.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.5);
+}
+
+.widget-value p {
+  text-align: center;
+  /* color: var(--bg); */
 }

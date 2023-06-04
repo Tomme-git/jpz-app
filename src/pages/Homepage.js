@@ -1,24 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getPostsData } from '../utils/walletUtils';
+import { NavLink } from 'react-router-dom';
+import defaultProfilePicture from '../images/default-pfp.png';
 
 function Homepage() {
-  return (
-    <>
-      <div className="mini-hero">
-        {/*<h1>Jyllands Park Zoo</h1>*/}
-      </div>
-      <main>
-        <section className="welcome">
-          <h2>Velkommen til vores app</h2>
-          <p>Du kan:</p>
-          <ul>
-            <li>Sætte penge ind på din konto samt overføre penge til armbånd fra din konto</li>
-            <li>Købe klippekort til forlystelser</li>
-            <li>Se kort over Jyllands Park Zoo samt sidste lokation på armbånd</li>
+  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [isPosts, setIsPosts] = useState(true);
+  const [walletAmount, setWalletAmount] = useState(false);
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchData = async () => {
+      try {
+        const { posts, isPosts } = await getPostsData();
+        setIsLoading(false);
+        setPosts(posts);
+        setIsPosts(isPosts);
+      } catch (error) {
+        console.log(error)
+        setIsLoading(false);
+        setIsPosts(false);
+      }
+    }
+    fetchData();
 
-          </ul>
-        </section>
-      </main>
-    </>
+  }, [walletAmount, setWalletAmount]);
+  return (
+    <main>
+      <div className={`loading ${isLoading ? "show" : "hide"}`}></div>
+      <section className="year-cards">
+        <h1>Årskort</h1>
+        {isPosts ? (
+          <>
+            {posts.map((post) => (
+              <div key={post.id} className="year-card">
+                <div className="barcode" style={{ backgroundColor: 'white', height: '75px', marginBottom: '1.5rem' }}></div>
+                <div className="profile">
+                  <img src={defaultProfilePicture} alt="årskort billede" />
+                  <div>
+                    <div className="card-owner">
+                      <p><b>{post.yearCards.name}</b></p>
+                      <p>{post.yearCards.type}</p>
+                    </div>
+                    <div className="card-details">
+                      <p><b>Udløbsdato</b></p>
+                      <p>{post.yearCards.endDate}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div className="widget-value">
+            <p>👛</p>
+            <p>0 kr.</p>
+          </div>
+        )}
+      </section>
+    </main>
   );
 };
 

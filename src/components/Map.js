@@ -32,6 +32,10 @@ function Map() {
         lat: 56.09641401430544, lng: 8.80776375593962
       }}
       mapContainerClassName='map-container'
+      options={{
+        gestureHandling: 'none',
+        disableDefaultUI: true
+      }}
     >
       <div className="map-overlay" onClick={() => updateMarkers()}>
         <p>Find armbånd</p>
