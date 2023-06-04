@@ -34,32 +34,36 @@ function Homepage() {
           <>
             {posts.map((post) => (
               post.yearCards ?
-                <div key={post.id} className="year-card">
-                  {post.yearCards.active === "yes" ?
-                    <div className="barcode active-card">
-                      <div><p>Aktivt årskort</p></div>
-                    </div>
-                    :
-                    <div className="barcode inactive-card">
-                      <div><p>Årskort ikke aktivt</p></div>
-                    </div>
-                  }
-                  <div className="profile">
-                    <img src={defaultProfilePicture} alt="årskort billede" />
-                    <div>
-                      <div className="card-owner">
-                        <p><b>{post.yearCards.name}</b></p>
-                        <p>{post.yearCards.type}</p>
+                post.yearCards.map((card, cardIndex) => (
+                  <div key={cardIndex} className="year-card">
+                    {card.active === "yes" ?
+                      <div className="barcode active-card">
+                        <div><p>Aktivt årskort</p></div>
                       </div>
-                      <div className="card-details">
-                        <p><b>Udløbsdato</b></p>
-                        <p>{post.yearCards.endDate}</p>
+                      :
+                      <div className="barcode inactive-card">
+                        <div><p>Årskort ikke aktivt</p></div>
+                      </div>
+                    }
+                    <div className="profile">
+                      <img src={defaultProfilePicture} alt="årskort billede" />
+                      <div>
+                        <div className="card-owner">
+                          <p><b>{card.name}</b></p>
+                          <p>{card.type}</p>
+                        </div>
+                        <div className="card-details">
+                          <p><b>Udløbsdato</b></p>
+                          <p>{card.endDate}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))
                 :
-                <div>Ingen Årskort</div>
+                <div>
+                  <p>Ingen årskort oprettet</p>
+                </div>
             ))}
             <button className="buy_year-card">
               <p>Icon</p>

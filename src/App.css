@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Condensed:wght@300;700&display=swap');
 
 :root {
-  /*
-  --text: #f5efa3;
-  --bg: #303a3a;
-  --cta: #fbdd33;
-  --secondary: #053338;
-  --accent: #40fd00;
-*/
   --text: #25424f;
   --bg: #efead6;
   --cta: #739b22;
@@ -235,7 +228,6 @@ main {
 
 .barcode {
   height: 2rem;
-  margin-bottom: 1.5rem;
 }
 
 .barcode p {
