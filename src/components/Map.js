@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
+import SearchIcon from '../images/search.svg';
 
 function Map() {
 
@@ -38,7 +39,7 @@ function Map() {
       }}
     >
       <div className="map-overlay" onClick={() => updateMarkers()}>
-        <p>Find armbånd</p>
+        <img src={SearchIcon} height={30} alt="Kort ikon" /><p>Find armbånd</p>
       </div>
       <MarkerF position={userLocation} />
       {markers ?

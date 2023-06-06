@@ -60,6 +60,10 @@ a {
   color: var(--accent);
 }
 
+p {
+  font-size: 1rem;
+}
+
 .App {
   min-height: 100dvh;
 }
@@ -179,8 +183,7 @@ nav {
 }
 
 nav>.active {
-  background-color: var(--text-bg);
-  color: var(--text);
+  background-color: var(--cta);
 }
 
 .show-nav {
@@ -193,7 +196,9 @@ nav>a {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   transition: 0.2s ease-out;
+  color: var(--text);
 }
 
 nav>a+a {
@@ -212,10 +217,12 @@ main {
 
 /***************************** year cards **/
 
-.year-cards {}
+.year-cards {
+  margin-bottom: 5rem;
+}
 
-.year-cards h1 {
-  margin-bottom: 2rem;
+.year-cards>*+* {
+  margin-top: 2rem;
 }
 
 .year-card {
@@ -224,15 +231,26 @@ main {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(8, 29, 49, 0.2);
 }
 
 .barcode {
   height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .barcode p {
   color: var(--bg);
   text-align: center;
+}
+
+.barcode>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .active-card {
@@ -281,9 +299,105 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem auto 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  min-height: 300px;
+  background-color: var(--secondary);
+  border: 1px solid var(--accent);
+  border-radius: 0.375rem;
+}
+
+dialog::backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog>div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 1.25rem auto 0 auto;
+}
+
+dialog form input,
+dialog form select {
+  height: 3.5rem;
+  padding-inline: 1rem;
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+dialog form input:focus,
+dialog form select:focus {
+  outline: transparent;
+  border: 2px solid var(--cta);
+}
+
+dialog form>*+* {
+  margin-top: 0.75rem;
+}
+
+dialog form button {
+  width: 20%;
+  height: 2.5rem;
+  width: 6rem;
+  margin-left: auto;
+  margin-right: 0;
+  background-color: var(--cta);
+  outline: transparent;
+  border: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: var(--text);
+}
+
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: 0.375rem;
+  cursor: pointer;
+}
+
+.close-modal p {
+  font-size: 1.25rem;
+  color: var(--bg);
+  transform: scaleX(1.25);
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+}
 
 /***************************** wallet **/
 
@@ -447,18 +561,19 @@ main {
   justify-content: center;
   box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.2);
   border-radius: 4px;
+  gap: 0.25rem;
 }
 
 .map-overlay>p {
   color: var(--bg);
-  font-size: 1.375rem
+  font-size: 1.125rem
 }
 
 /**************************************** Wallet widget *******/
 .wallet-widget {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 2rem;
+  left: 2rem;
   height: 5rem;
   width: 5rem;
   border-radius: 0.25rem;

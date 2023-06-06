@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/logo.png';
+import WalletIcon from '../images/wallet.svg';
+import BookingIcon from '../images/booking.svg';
+import MapIcon from '../images/map.svg';
+import YearCardIcon from '../images/yearcard.svg';
 
 function Header() {
   const burgerRef = useRef(null);
@@ -35,10 +39,10 @@ function Header() {
       </div>
       <div className="header-bg"></div>
       <nav className={open ? "show-nav" : ""}>
-        <NavLink to="/projects/jpz-app/">Hjem</NavLink>
-        <NavLink to="/projects/jpz-app/wallet">Pung</NavLink>
-        <NavLink to="/projects/jpz-app/location">Maps</NavLink>
-        <NavLink to="/projects/jpz-app/">Icon</NavLink>
+        <NavLink to="/projects/jpz-app/"><img src={YearCardIcon} width={35} alt="Årskort ikon" />Årskort</NavLink>
+        <NavLink to="/projects/jpz-app/wallet"><img src={WalletIcon} width={30} alt="Pung ikon" />Pung</NavLink>
+        <NavLink to="/projects/jpz-app/location"><img src={MapIcon} width={35} alt="Kort ikon" />Kort</NavLink>
+        <NavLink to="/projects/jpz-app/"><img src={BookingIcon} width={40} alt="Booking ikon" />Book</NavLink>
         <div className="nav-bg"></div>
       </nav>
     </header>

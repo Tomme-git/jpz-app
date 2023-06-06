@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getPostsData, addMoney, moneyToArmband } from '../utils/walletUtils';
+import { getPostsData, addMoney, moneyToArmband } from '../utils/firebaseUtils';
+import AddIcon from '../images/add.svg';
 
 function Wallet() {
   const userId = 0;
@@ -77,9 +78,9 @@ function Wallet() {
             {posts.map((post) => (
               <div key={post.id} className="wallet-wrapper">
                 <div className="wallet-display">
-                  <p className="wallet-currency"><span>DKK </span>{post.walletCurrency}</p>
+                  <p className="wallet-currency"><span>kr. </span>{post.walletCurrency},-</p>
                   <div className="add-money">
-                    <button type="button" onClick={() => handleAddMoney(100, post)}>+</button>
+                    <button type="button" onClick={() => handleAddMoney(100, post)}><img src={AddIcon} height={30} alt="Tilføj penge ikon" /></button>
                   </div>
                 </div>
 
@@ -90,9 +91,9 @@ function Wallet() {
                       <div key={armbandIndex} className="armband">
                         <div>
                           <h3>{armband.user}</h3>
-                          <p><span>DKK </span>{armband.armbandCurrency}</p>
+                          <p><span>kr. </span>{armband.armbandCurrency},-</p>
                           <div className="add-money">
-                            <button type="button" onClick={() => handleMoneyToArmband(50, armband, post)}>+</button>
+                            <button type="button" onClick={() => handleMoneyToArmband(50, armband, post)}><img src={AddIcon} height={30} alt="Tilføj penge ikon" /></button>
                           </div>
                         </div>
                       </div>

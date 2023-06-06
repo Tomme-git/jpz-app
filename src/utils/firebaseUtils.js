@@ -65,3 +65,36 @@ export async function moneyToArmband(userUrl, amount, armband, post) {
     throw new Error('Failed to transfer money.');
   }
 }
+
+export async function addYearCard(userUrl, name, ageGroup) {
+  let d = new Date();
+  let nextYear = d.getFullYear() + 1;
+  let month = d.getMonth() + 1;
+  let day = d.getDate();
+  let nextYearDate = day + '/' + month + '/' + nextYear;
+
+  try {
+    const response = await fetch(userUrl);
+    const data = await response.json();
+
+    let yearCards = data.yearCards;
+    if (yearCards) {
+      yearCards.push({ name: name, type: ageGroup, active: "yes", endDate: nextYearDate })
+    } else {
+      yearCards = [{ name: name, type: ageGroup, active: "yes", endDate: nextYearDate }]
+    }
+
+    const updatedYearCards = { ...data, yearCards }
+
+    await fetch(userUrl, {
+      method: "PUT",
+      body: JSON.stringify(updatedYearCards),
+    });
+
+    return { yearCards: yearCards, notifyParams: { name: name } }
+
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to create year card.');
+  }
+}

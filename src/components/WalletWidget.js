@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getPostsData } from '../utils/walletUtils';
+import { getPostsData } from '../utils/firebaseUtils';
+import WalletIcon from '../images/wallet.svg';
 
 function WalletWidget() {
   const [posts, setPosts] = useState([]);
@@ -8,20 +9,27 @@ function WalletWidget() {
   const [walletAmount, setWalletAmount] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      await getPostsData(setPosts, setWalletAmount, setIsPosts);
+      try {
+        const { posts, isPosts } = await getPostsData();
+        setPosts(posts);
+        setIsPosts(isPosts);
+      } catch (error) {
+        console.log(error)
+        setIsPosts(false);
+      }
     }
     fetchData();
-    console.log(walletAmount); // false = ok! (the widget is READ ONLY)
-  }, []);
+
+  }, [walletAmount, setWalletAmount]);
   return (
     <div className="wallet-widget">
       {isPosts ? (
         <>
           {posts.map((post) => (
-            <NavLink to="/projects/jpz-app/Wallet">
-              <div key={post.id} className="widget-value">
-                <p>👛</p>
-                <p>{post.walletCurrency} kr.</p>
+            <NavLink key={post.id} to="/projects/jpz-app/Wallet">
+              <div className="widget-value">
+                <img height={20} src={WalletIcon} alt="Pung ikon" />
+                <p>{post.walletCurrency},-</p>
               </div>
             </NavLink>
           ))}
