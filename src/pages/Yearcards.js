@@ -5,7 +5,6 @@ import defaultProfilePicture from '../images/default-pfp.png';
 import { ToastContainer, toast } from 'react-toastify';
 import AddYearCard from '../images/card-add.svg';
 import Checkmark from '../images/checkmark.svg';
-import WalletWidget from '../components/WalletWidget';
 
 function Yearcards() {
   const notify = (name, error = false) => toast(
@@ -101,11 +100,11 @@ function Yearcards() {
                 post.yearCards.map((card, cardIndex) => (
                   <div key={cardIndex} className="year-card">
                     {card.active === "yes" ?
-                      <div className="barcode active-card">
+                      <div className="card-status active-card">
                         <div><img src={Checkmark} height={20} alt="checkmark" /><p>Aktivt årskort</p></div>
                       </div>
                       :
-                      <div className="barcode inactive-card">
+                      <div className="card-status inactive-card">
                         <div><p>Årskort ikke aktivt</p></div>
                       </div>
                     }
@@ -122,6 +121,7 @@ function Yearcards() {
                         </div>
                       </div>
                     </div>
+                    <div className="barcode">123456789</div>
                   </div>
                 ))
                 :

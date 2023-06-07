@@ -1,9 +1,20 @@
-<svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(-1, 0, 0, 1, 0, 0)">
-
-<g id="bgCarrier" stroke-width="0"/>
-
-<g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-<g id="iconCarrier"> <path d="M2.28998 7.77998V17.51C2.28998 19.41 3.63998 20.19 5.27998 19.25L7.62998 17.91C8.13998 17.62 8.98998 17.59 9.51998 17.86L14.77 20.49C15.3 20.75 16.15 20.73 16.66 20.44L20.99 17.96C21.54 17.64 22 16.86 22 16.22V6.48998C22 4.58998 20.65 3.80998 19.01 4.74998L16.66 6.08998C16.15 6.37998 15.3 6.40998 14.77 6.13998L9.51998 3.51998C8.98998 3.25998 8.13998 3.27998 7.62998 3.56998L3.29998 6.04998C2.73998 6.36998 2.28998 7.14998 2.28998 7.77998Z" stroke="#25424f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M8.56 4V17" stroke="#25424f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15.73 6.62012V20.0001" stroke="#25424f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
-
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" transform="matrix(-1, 0, 0, 1, 0, 0)"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+	 style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#25424F;stroke-width:6.25;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:16.6667;}
+</style>
+<g id="background">
+</g>
+<g id="tracer">
+</g>
+<g id="icon">
+	<path class="st0" d="M3.7,29.7v45.7c0,8.9,6.3,12.6,14.1,8.2l11-6.3c2.4-1.4,6.4-1.5,8.9-0.2l24.7,12.4c2.5,1.2,6.5,1.1,8.9-0.2
+		l20.4-11.7c2.6-1.5,4.7-5.2,4.7-8.2V23.6c0-8.9-6.3-12.6-14.1-8.2l-11,6.3c-2.4,1.4-6.4,1.5-8.9,0.2L37.7,9.6
+		c-2.5-1.2-6.5-1.1-8.9,0.2L8.5,21.5C5.8,23,3.7,26.7,3.7,29.7z"/>
+	<path class="st0" d="M33.2,11.9V73"/>
+	<path class="st0" d="M66.9,24.2v62.9"/>
+</g>
 </svg>

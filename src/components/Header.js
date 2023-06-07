@@ -40,9 +40,9 @@ function Header() {
       <div className="header-bg"></div>
       <nav className={open ? "show-nav" : ""}>
         <NavLink to="/projects/jpz-app/"><img src={YearCardIcon} width={35} alt="Årskort ikon" />Årskort</NavLink>
-        <NavLink to="/projects/jpz-app/wallet"><img src={WalletIcon} width={30} alt="Pung ikon" />Pung</NavLink>
+        <NavLink to="/projects/jpz-app/wallet"><img src={WalletIcon} width={35} alt="Pung ikon" />Pung</NavLink>
         <NavLink to="/projects/jpz-app/location"><img src={MapIcon} width={35} alt="Kort ikon" />Kort</NavLink>
-        <NavLink to="/projects/jpz-app/"><img src={BookingIcon} width={40} alt="Booking ikon" />Book</NavLink>
+        <NavLink to="/projects/jpz-app/"><img src={BookingIcon} width={35} alt="Booking ikon" />Book</NavLink>
         <div className="nav-bg"></div>
       </nav>
     </header>

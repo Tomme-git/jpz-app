@@ -39,7 +39,7 @@ function Map() {
       }}
     >
       <div className="map-overlay" onClick={() => updateMarkers()}>
-        <img src={SearchIcon} height={30} alt="Kort ikon" /><p>Find armbånd</p>
+        <img src={SearchIcon} height={25} alt="Kort ikon" /><p>Find armbånd</p>
       </div>
       <MarkerF position={userLocation} />
       {markers ?

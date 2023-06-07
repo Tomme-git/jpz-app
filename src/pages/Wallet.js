@@ -80,7 +80,7 @@ function Wallet() {
                 <div className="wallet-display">
                   <p className="wallet-currency"><span>kr. </span>{post.walletCurrency},-</p>
                   <div className="add-money">
-                    <button type="button" onClick={() => handleAddMoney(100, post)}><img src={AddIcon} height={30} alt="Tilføj penge ikon" /></button>
+                    <button type="button" onClick={() => handleAddMoney(100, post)}><img src={AddIcon} height={20} alt="Tilføj penge ikon" /></button>
                   </div>
                 </div>
 
@@ -93,7 +93,7 @@ function Wallet() {
                           <h3>{armband.user}</h3>
                           <p><span>kr. </span>{armband.armbandCurrency},-</p>
                           <div className="add-money">
-                            <button type="button" onClick={() => handleMoneyToArmband(50, armband, post)}><img src={AddIcon} height={30} alt="Tilføj penge ikon" /></button>
+                            <button type="button" onClick={() => handleMoneyToArmband(50, armband, post)}><img src={AddIcon} height={20} alt="Tilføj penge ikon" /></button>
                           </div>
                         </div>
                       </div>

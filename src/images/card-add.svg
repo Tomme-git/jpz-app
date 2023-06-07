@@ -1,9 +1,58 @@
-<svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-<g id="bgCarrier" stroke-width="0"/>
-
-<g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-<g id="iconCarrier"> <path d="M2 8.5H13.5" stroke="#efead6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/> <path d="M6 16.5H8" stroke="#efead6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/> <path d="M10.5 16.5H14.5" stroke="#efead6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/> <path d="M22 12.03V16.11C22 19.62 21.11 20.5 17.56 20.5H6.44C2.89 20.5 2 19.62 2 16.11V7.89C2 4.38 2.89 3.5 6.44 3.5H13.5" stroke="#efead6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M16.5 6.25H22" stroke="#efead6" stroke-width="1.5" stroke-linecap="round"/> <path d="M19.25 9V3.5" stroke="#efead6" stroke-width="1.5" stroke-linecap="round"/> </g>
-
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#efead6;}
+	.st1{fill:#efead6;stroke:#efead6;stroke-width:6.25;stroke-linecap:round;stroke-miterlimit:16.6667;}
+</style>
+<g id="background">
+</g>
+<g id="tracer">
+</g>
+<g id="cardicon">
+	<path class="st0" d="M94.9,42.5v34.6c0,2.4-1.9,4.3-4.2,4.3H9.3c-2.3,0-4.2-1.9-4.2-4.2v-45h47.7c-0.4-1.7-0.6-3.4-0.6-5.1H5.1
+		v-4.2c0-2.3,1.9-4.2,4.2-4.2h45.1c1.4-2.2,3.6-3.9,6.7-5.1H9.3c-5.1,0-9.3,4.2-9.3,9.3v54.2c0,5.1,4.2,9.3,9.3,9.3h81.4
+		c5.1,0,9.3-4.2,9.3-9.3V36.6C98.5,38.8,96.8,40.8,94.9,42.5z"/>
+	<path class="st0" d="M27.4,42.3c0-2.8-2.2-5-5-5c-2.8,0-5,2.2-5,5c0,2.7,2.2,5,5,5C25.2,47.3,27.4,45.1,27.4,42.3z M20.2,42.3
+		c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2s-1,2.2-2.2,2.2C21.2,44.5,20.2,43.5,20.2,42.3z"/>
+	<path class="st0" d="M35.2,39.9c-0.7,0-1.3,0.6-1.3,1.2c0,0.7,0.6,1.2,1.3,1.2h13.5c0.7,0,1.3-0.6,1.3-1.2c0-0.6-0.6-1.2-1.3-1.2
+		H35.2z"/>
+	<path class="st0" d="M14.9,54.8v0.4c0,0.7,0.6,1.3,1.3,1.3c0.6,0,1.1-0.4,1.2-1c0.5-2.3,2.6-4,5-4c2.4,0,4.5,1.7,5,4
+		c0.1,0.6,0.6,1,1.2,1c0.7,0,1.3-0.6,1.3-1.3v-0.3c-0.9-3.5-3.9-6-7.5-6C18.8,48.9,15.7,51.4,14.9,54.8z"/>
+</g>
+<path class="st0" d="M48.7,46.5H35.2c-0.7,0-1.3,0.6-1.3,1.2s0.6,1.2,1.3,1.2l0,0h13.5c0.7,0,1.3-0.6,1.3-1.2
+	C50,47,49.4,46.5,48.7,46.5L48.7,46.5z"/>
+<path class="st0" d="M48.7,53.2H35.2c-0.7,0-1.3,0.6-1.3,1.2s0.6,1.2,1.3,1.2l0,0h13.5c0.7,0,1.3-0.6,1.3-1.2S49.4,53.2,48.7,53.2
+	L48.7,53.2z"/>
+<g id="layer1" transform="translate(177,203.34375)">
+	<g id="g3071">
+		<g id="layer1-6" transform="translate(-126.75612,74.491063)">
+			<g id="g4683">
+				<g id="g3697" transform="matrix(3.9718,0,0,3.9248,-1030.4,1039.1)">
+					<path id="path3701" class="st0" d="M266.9-315.9c0,0,0-0.4,0-1.9v-1.9h0.1h0.1v1.9v1.9H267H266.9 M250.7-317.8v-1.9h0.1h0.1
+						v1.9v1.9h-0.1h-0.1V-317.8L250.7-317.8z M251-317.8v-1.9h0.1h0.1v1.9v1.9h-0.1H251V-317.8L251-317.8z M258.8-317.8v-1.9h0.1
+						h0.1v1.9v1.9h-0.1h-0.1V-317.8L258.8-317.8z M259.1-317.8v-1.9h0.1h0.1v1.9v1.9h-0.1h-0.1V-317.8L259.1-317.8z M267.2-317.8
+						v-1.9h0.1h0.1v1.9v1.9h-0.1h-0.1V-317.8L267.2-317.8z M251.7-317.9v-1.8h0.2h0.2v1.8v1.8h-0.2h-0.2V-317.9z M252.2-317.9v-1.8
+						h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M252.6-317.9v-1.8h0.2h0.2v1.8v1.8h-0.2h-0.2V-317.9z M253.3-317.9v-1.8h0.2h0.2v1.8v1.8
+						h-0.2h-0.2V-317.9z M254-317.9v-1.8h0.2h0.2v1.8v1.8h-0.2H254V-317.9z M254.5-317.9v-1.8h0.2h0.2v1.8v1.8h-0.2h-0.2V-317.9z
+						 M255.1-317.9v-1.8h0.4h0.4v1.8v1.8h-0.4h-0.4V-317.9z M256-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1H256V-317.9z M256.3-317.9v-1.8
+						h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M257-317.9v-1.8h0.2h0.2v1.8v1.8h-0.2H257V-317.9z M257.5-317.9v-1.8h0.3h0.3v1.8v1.8h-0.3
+						h-0.3V-317.9z M258.4-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M259.5-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z
+						 M259.8-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M260.7-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M261.4-317.9v-1.8
+						h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M261.9-317.9v-1.8h0.1h0.1v1.8v1.8H262h-0.1V-317.9z M262.5-317.9v-1.8h0.1h0.1v1.8v1.8
+						h-0.1h-0.1V-317.9z M263.2-317.9v-1.8h0.3h0.3v1.8v1.8h-0.3h-0.3V-317.9z M263.9-317.9v-1.8h0.1h0.1v1.8v1.8H264h-0.1V-317.9z
+						 M264.4-317.9v-1.8h0.3h0.3v1.8v1.8h-0.3h-0.3V-317.9z M265.3-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z M265.7-317.9v-1.8
+						h0.3h0.3v1.8v1.8H266h-0.3V-317.9z M266.6-317.9v-1.8h0.1h0.1v1.8v1.8h-0.1h-0.1V-317.9z"/>
+				</g>
+			</g>
+		</g>
+		<g id="flowRoot3064" transform="matrix(1.4176012,0,0,1.4176012,-268.62582,-1240.9429)">
+		</g>
+	</g>
+</g>
+<g id="plusicon">
+	<path class="st1" d="M64.1,25.9h32.4"/>
+	<path class="st1" d="M80.3,42.1V9.7"/>
+</g>
 </svg>
