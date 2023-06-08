@@ -25,7 +25,7 @@ function Wallet() {
   const userUrl =
     `https://jpz-app-default-rtdb.europe-west1.firebasedatabase.app/userCurrency/${userId}.json`;
 
-  // get data from firebase and assign to post variable
+  // get data from firebase and assign to posts and isPosts variables (and isLoading
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -42,7 +42,7 @@ function Wallet() {
     }
     fetchData();
 
-  }, [walletAmount, setWalletAmount]);
+  }, [walletAmount]);
 
   async function handleAddMoney(amount, post) {
     try {

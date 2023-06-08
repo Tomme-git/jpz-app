@@ -361,6 +361,10 @@ dialog form {
   margin: 1.25rem auto 0 auto;
 }
 
+dialog form label {
+  color: var(--bg);
+}
+
 dialog form input,
 dialog form select {
   height: 3.5rem;

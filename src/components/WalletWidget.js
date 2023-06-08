@@ -37,7 +37,7 @@ function WalletWidget() {
       ) : (
         <NavLink to="/projects/jpz-app/Wallet">
           <div className="widget-value">
-            <p>👛</p>
+            <img height={20} src={WalletIcon} alt="Pung ikon" />
             <p>0 kr.</p>
           </div>
         </NavLink>

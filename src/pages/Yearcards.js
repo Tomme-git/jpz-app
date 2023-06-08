@@ -61,7 +61,6 @@ function Yearcards() {
 
   async function handleAddYearCard(e) {
     e.preventDefault();
-    console.log("SOMETHING")
     try {
       const { yearCards, notifyParams } = await addYearCard(userUrl, formData.name, formData.ageGroup);
       setYearCards(yearCards);
@@ -134,8 +133,11 @@ function Yearcards() {
               <dialog ref={dialogRef} data-modal onClick={handleOutsideClick}>
                 <div>
                   <form>
+                    <label htmlFor="name">Navn</label>
                     <input name="name" value={formData.name} placeholder="Navn" onChange={handleChange} />
+                    <label htmlFor="ageGroup">Aldersgruppe</label>
                     <select name="ageGroup" value={formData.ageGroup} onChange={handleChange}>
+                      <option defaultValue disabled value="">Vælg aldersgruppe</option>
                       <option value="Voksen">Voksen - kr. 385,-</option>
                       <option value="Barn, 2-11 år">Barn, 2-11 år - kr. 250,-</option>
                       <option value="Barn, 0-1 år">Barn, 0-1 år - Gratis</option>
@@ -145,13 +147,12 @@ function Yearcards() {
                   </form>
                   <div className="close-modal" data-close-modal onClick={handleCloseModal}><p>X</p></div>
                 </div>
-
               </dialog>
             </>
           </>
         ) : (
           <div>
-            <p>Ingen posts fundet</p>
+            <p>Ingen brugerdata fundet kontakt: +45 97 16 61 20</p>
           </div>
         )}
       </section>
