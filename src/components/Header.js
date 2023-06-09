@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/logo.png';
 import WalletIcon from '../images/wallet.svg';
-import BookingIcon from '../images/booking.svg';
+import TicketsIcon from '../images/tickets.svg';
 import MapIcon from '../images/map.svg';
 import YearCardIcon from '../images/yearcard.svg';
 
@@ -42,7 +42,7 @@ function Header() {
         <NavLink to="/projects/jpz-app/"><img src={YearCardIcon} width={35} alt="Årskort ikon" />Årskort</NavLink>
         <NavLink to="/projects/jpz-app/wallet"><img src={WalletIcon} width={35} alt="Pung ikon" />Pung</NavLink>
         <NavLink to="/projects/jpz-app/location"><img src={MapIcon} width={35} alt="Kort ikon" />Kort</NavLink>
-        <NavLink to="/projects/jpz-app/"><img src={BookingIcon} width={35} alt="Booking ikon" />Book</NavLink>
+        <NavLink to="/projects/jpz-app/tickets"><img src={TicketsIcon} width={35} alt="Klippekort ikon" />Klippekort</NavLink>
         <div className="nav-bg"></div>
       </nav>
     </header>

@@ -25,7 +25,8 @@ export async function addMoney(userUrl, amount, post) {
     const updatedArray = {
       walletCurrency: updatedWalletCurrency,
       armbands: post.armbands,
-      yearCards: post.yearCards
+      yearCards: post.yearCards,
+      tickets: post.tickets
     };
     await fetch(userUrl, {
       method: "PUT",
@@ -53,7 +54,8 @@ export async function moneyToArmband(userUrl, amount, armband, post) {
     const updatedArray = {
       walletCurrency: updatedWalletCurrency,
       armbands: updatedArmbands,
-      yearCards: post.yearCards
+      yearCards: post.yearCards,
+      tickets: post.tickets
     };
     await fetch(userUrl, {
       method: "PUT",
@@ -90,5 +92,29 @@ export async function addYearCard(userUrl, name, ageGroup) {
   } catch (error) {
     console.log(error);
     throw new Error('Failed to create year card.');
+  }
+}
+
+export async function buyTickets(userUrl, amount, cost) {
+  try {
+    const response = await fetch(userUrl);
+    const data = await response.json();
+
+    const updatedWalletCurrency = data.walletCurrency - cost;
+    const updatedTicketAmount = data.tickets + amount
+    const updatedArray = {
+      walletCurrency: updatedWalletCurrency,
+      armbands: data.armbands,
+      yearCards: data.yearCards,
+      tickets: updatedTicketAmount
+    };
+    await fetch(userUrl, {
+      method: "PUT",
+      body: JSON.stringify(updatedArray),
+    });
+    return { walletCurrency: updatedWalletCurrency, notifyParams: { ticketsBought: amount } }
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to buy tickets.');
   }
 }

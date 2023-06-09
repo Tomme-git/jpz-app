@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Yearcards from './pages/Yearcards';
 import Wallet from './pages/Wallet';
 import Location from './pages/Location';
+import Tickets from './pages/Tickets';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/projects/jpz-app/" element={<Yearcards />} />
           <Route path="/projects/jpz-app/wallet" element={<Wallet />} />
           <Route path="/projects/jpz-app/location" element={<Location />} />
+          <Route path="/projects/jpz-app/tickets" element={<Tickets />} />
         </Routes>
       </BrowserRouter>
     </div>

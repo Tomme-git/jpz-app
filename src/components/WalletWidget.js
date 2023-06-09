@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getPostsData } from '../utils/firebaseUtils';
-import WalletIcon from '../images/wallet.svg';
 
-function WalletWidget() {
+function WalletWidget({ widgetKey }) {
   const [posts, setPosts] = useState([]);
   const [isPosts, setIsPosts] = useState(true);
-  const [walletAmount, setWalletAmount] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,7 +18,7 @@ function WalletWidget() {
     }
     fetchData();
 
-  }, [walletAmount, setWalletAmount]);
+  }, [widgetKey]);
   return (
     <div className="wallet-widget">
       {isPosts ? (
@@ -28,7 +26,7 @@ function WalletWidget() {
           {posts.map((post) => (
             <NavLink key={post.id} to="/projects/jpz-app/Wallet">
               <div className="widget-value">
-                <img height={20} src={WalletIcon} alt="Pung ikon" />
+                <div className="wallet-icon"></div>
                 <p>{post.walletCurrency},-</p>
               </div>
             </NavLink>
@@ -37,7 +35,7 @@ function WalletWidget() {
       ) : (
         <NavLink to="/projects/jpz-app/Wallet">
           <div className="widget-value">
-            <img height={20} src={WalletIcon} alt="Pung ikon" />
+            <div className="wallet-icon"></div>
             <p>0 kr.</p>
           </div>
         </NavLink>
