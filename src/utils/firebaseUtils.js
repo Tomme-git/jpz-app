@@ -46,9 +46,9 @@ export async function moneyToArmband(userUrl, amount, armband, post) {
     const updatedArmbands = {};
     for (let i = 0; i < armbandsObj.length; i++) {
       if (armbandsObj[i].user === armband.user) {
-        updatedArmbands[i] = { "user": armband.user, "armbandCurrency": armband.armbandCurrency + amount };
+        updatedArmbands[i] = { "user": armband.user, "armbandCurrency": armband.armbandCurrency + amount, "armbandNumber": armband.armbandNumber };
       } else {
-        updatedArmbands[i] = { "user": armbandsObj[i].user, "armbandCurrency": armbandsObj[i].armbandCurrency };
+        updatedArmbands[i] = { "user": armbandsObj[i].user, "armbandCurrency": armbandsObj[i].armbandCurrency, "armbandNumber": armbandsObj[i].armbandNumber };
       };
     };
     const updatedArray = {
@@ -65,6 +65,28 @@ export async function moneyToArmband(userUrl, amount, armband, post) {
   } catch (error) {
     console.log(error);
     throw new Error('Failed to transfer money.');
+  }
+}
+
+export async function addArmband(userUrl, name, armbandNumber) {
+  try {
+    const response = await fetch(userUrl);
+    const data = await response.json();
+    let armbands = data.armbands;
+    if (armbands) {
+      armbands.push({ user: name, armbandCurrency: 0, armbandNumber: armbandNumber })
+    } else {
+      armbands = [{ user: name, armbandCurrency: 0, armbandNumber: armbandNumber }]
+    }
+    const updatedarmbands = { ...data, armbands }
+    await fetch(userUrl, {
+      method: "PUT",
+      body: JSON.stringify(updatedarmbands),
+    });
+    return { notifyParams: { name: name, armbandNumber: armbandNumber } }
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to create year card.');
   }
 }
 

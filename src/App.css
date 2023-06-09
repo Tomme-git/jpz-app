@@ -497,6 +497,9 @@ dialog form button {
   padding: 1rem;
   flex: 1;
   box-shadow: 0px 4px 12px rgba(8, 29, 49, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .armband>div {
@@ -552,6 +555,68 @@ dialog form button {
   border: none;
   cursor: pointer;
 }
+
+.armband h3 {
+  color: var(--bg);
+}
+
+.new-armband {
+  max-width: 320px;
+}
+
+.add-armband-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.add-armband-form label {
+  color: var(--bg);
+}
+
+.add-armband-form input {
+  height: 2rem;
+  background-color: var(--bg);
+  border: none;
+  padding-left: 1rem;
+}
+
+.add-armband-form input:focus {
+  outline: transparent;
+  border: 2px solid var(--cta);
+}
+
+.add-armband-form .add-armband {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background-color: var(--accent);
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 6px rgba(8, 29, 49, 0.2);
+}
+
+.add-armband-form .add-armband button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  color: var(--bg);
+  font-size: 2rem;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 
 /*********************************************** Map */
 

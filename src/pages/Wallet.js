@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getPostsData, addMoney, moneyToArmband } from '../utils/firebaseUtils';
+import { getPostsData, addMoney, moneyToArmband, addArmband } from '../utils/firebaseUtils';
 import AddIcon from '../images/add.svg';
 
 function Wallet() {
   const userId = 0;
-  const notify = (amountAdded, person = false, error = false) => toast(
-    error ? `Der skete en fejl, prøv igen senere` : `${amountAdded} kr. overført ${person ? "til " + person + "s armbånd" : "til din pung"}`,
+  const notify = (amountAdded, person = false, error = false, addedArmband = false) => toast(
+    error ?
+      `Der skete en fejl, prøv igen senere`
+      : addedArmband ? `Armbånd tilkoblet til ${person}`
+        : `${amountAdded} kr. overført ${person ?
+          "til " + person + "s armbånd"
+          : "til din pung"}`,
     {
       type: "success",
       theme: "light",
@@ -66,6 +71,27 @@ function Wallet() {
     }
   };
 
+  const [formData, setFormData] = useState({ name: '', armbandNumber: '' });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(formData);
+  };
+
+  async function handleAddArmband(e) {
+    e.preventDefault();
+    try {
+      const { notifyParams } = await addArmband(userUrl, formData.name, formData.armbandNumber);
+      notify(0, notifyParams.name, false, true);
+    } catch (error) {
+      console.error(error);
+      notify(0, false, true);
+    }
+  };
+
   return (
     <main>
       <div className={`loading ${isLoading ? "show" : "hide"}`}></div>
@@ -98,6 +124,18 @@ function Wallet() {
                         </div>
                       </div>
                     ))}
+                    <div className="armband new-armband">
+                      <h3>Tilføj armbånd</h3>
+                      <form className="add-armband-form">
+                        <label htmlFor="name">Navn</label>
+                        <input name="name" value={formData.name} placeholder="Navn" onChange={handleChange} />
+                        <label htmlFor="armbandNumber">Armbånd nummer</label>
+                        <input name="armbandNumber" value={formData.armbandNumber} placeholder="Armbånd nummer" onChange={handleChange} />
+                        <div className="add-armband">
+                          <button onClick={handleAddArmband}><img src={AddIcon} height={20} alt="Tilføj armbånd ikon" /></button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
