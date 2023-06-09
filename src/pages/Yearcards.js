@@ -132,6 +132,7 @@ function Yearcards() {
               <div className="buy_year-card" data-open-modal onClick={handleOpenModal}><img height={45} src={AddYearCard} alt="Add Year Card" /></div>
               <dialog ref={dialogRef} data-modal onClick={handleOutsideClick}>
                 <div>
+                  <h3>Køb årskort</h3>
                   <form>
                     <label htmlFor="name">Navn</label>
                     <input name="name" value={formData.name} placeholder="Navn" onChange={handleChange} />
